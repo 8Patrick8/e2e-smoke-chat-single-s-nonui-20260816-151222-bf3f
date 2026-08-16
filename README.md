@@ -48,9 +48,8 @@ Beispiel:
 ```
 
 Alle fünf Funktionen akzeptieren ausschließlich `str`; ein Nicht-String-Argument
-löst einheitlich `TypeError` aus. `truncate`, `word_count`, `is_palindrome` und
-`reverse_words` werden im laufenden Sprint implementiert und antworten bis dahin
-mit `NotImplementedError`.
+löst einheitlich `TypeError` aus. Die Funktionen sind reine Transformationen
+ohne Seiteneffekte und verwenden nur die Python-Standardbibliothek.
 
 ## Tests ausführen
 
@@ -60,12 +59,17 @@ python3 -m pytest
 
 ## Features
 
-- `slugify` – vollständig implementiert (AC-01): Kleinschreibung,
-  Bindestrich-Konvertierung, Zusammenfassen aufeinanderfolgender Bindestriche,
-  Entfernen führender/abschließender Bindestriche; Unicode- und
-  Leerstring-Kantenfälle sind abgedeckt.
-- `truncate`, `word_count`, `is_palindrome`, `reverse_words` – Stubs mit
-  korrekter Signatur, Implementierung folgt in eigenen Tickets.
+- `slugify` (AC-01) – Kleinschreibung, Bindestrich-Konvertierung, Zusammenfassen
+  aufeinanderfolgender Bindestriche, Entfernen führender/abschließender
+  Bindestriche; Unicode- und Leerstring-Kantenfälle sind abgedeckt.
+- `truncate` (AC-02) – kürzt auf `text[:max_len]` und hängt `'...'` an, wenn der
+  Text länger als `max_len` ist; kürzere Texte bleiben unverändert.
+- `word_count` (AC-03) – zählt die Wörter im Text, getrennt durch beliebiges
+  Whitespace.
+- `is_palindrome` (AC-04) – prüft, ob der Text rückwärts gelesen identisch ist;
+  Groß-/Kleinschreibung und nicht-alphanumerische Zeichen werden ignoriert.
+- `reverse_words` (AC-05) – kehrt die Reihenfolge der Wörter um; die
+  Buchstabenreihenfolge innerhalb der Wörter bleibt erhalten.
 - Nur Python-Standardbibliothek in Laufzeit- und Testcode (AC-07).
 - Keine exponentiell aufwändigen Regex-Muster; Lang-String-Laufzeittests (AC-09).
 - Unicode-Sonderzeichen, leere Zeichenfolgen und Whitespace-Kantenfälle
