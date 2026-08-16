@@ -1,9 +1,13 @@
-"""word_count - Stub, wird durch Ticket #2 (word_count implementieren) realisiert."""
+"""word_count - die Anzahl der Wörter in einem Text zählen."""
 
 
 def word_count(text: str) -> int:
     """Zählt die Wörter in ``text``.
 
-    Noch nicht implementiert - siehe Ticket #2.
+    Wörter sind durch beliebiges Whitespace getrennt; mehrere aufeinanderfolgende
+    Whitespace-Zeichen zählen nicht doppelt. Leerer oder Whitespace-only-Text
+    ergibt 0.
     """
-    raise NotImplementedError("word_count is implemented by sprint ticket #2")
+    if not isinstance(text, str):
+        raise TypeError(f"word_count() expects str, got {type(text).__name__}")
+    return len(text.split())
