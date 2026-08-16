@@ -1,9 +1,13 @@
-"""reverse_words - Stub, wird durch Ticket #3 (reverse_words implementieren) realisiert."""
+"""reverse_words - die Reihenfolge der Wörter in einem Text umkehren."""
 
 
 def reverse_words(text: str) -> str:
     """Kehrt die Reihenfolge der Wörter in ``text`` um.
 
-    Noch nicht implementiert - siehe Ticket #3.
+    Die Buchstabenreihenfolge innerhalb der Wörter bleibt unverändert.
+    Führende, abschließende und mehrfache Whitespaces werden auf einzelne
+    Leerzeichen normalisiert; leerer oder Whitespace-only-Text ergibt ``''``.
     """
-    raise NotImplementedError("reverse_words is implemented by sprint ticket #3")
+    if not isinstance(text, str):
+        raise TypeError(f"reverse_words() expects str, got {type(text).__name__}")
+    return " ".join(reversed(text.split()))
